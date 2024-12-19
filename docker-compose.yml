@@ -1,0 +1,27 @@
+services:
+  oracle-db:
+    image: gvenzl/oracle-free:latest
+    container_name: oracle-db
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: diesdas
+      APP_USER: my_user
+      APP_USER_PASSWORD: mysecurepassword
+    volumes:
+      - oracle-data:/opt/oracle/oradata # Persistente Daten
+      - ./init.sql:/container-entrypoint-initdb.d/init.sql:ro
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: mysql_user
+      MYSQL_PASSWORD: mysql_password
+
+volumes:
+  oracle-data:

@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    oracle:
+      jdbcUrl: jdbc:oracle:thin:@//localhost:1521/FREEPDB1
+      username: my_user
+      password: mysecurepassword
+      driver-class-name: oracle.jdbc.OracleDriver
+    mysql:
+      jdbcUrl: jdbc:mysql://localhost:3306/testdb?allowPublicKeyRetrieval=true&useSSL=false
+      username: mysql_user
+      password: mysql_password
+      driver-class-name: com.mysql.cj.jdbc.Driver
